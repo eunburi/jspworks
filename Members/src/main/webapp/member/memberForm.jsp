@@ -8,10 +8,11 @@
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
+	<jsp:include page="../header.jsp" />
 	<div id="container">
 		<section id="register">
 			<h2>회원가입</h2>
-			<form action="addMember.do" method="post">
+			<form action="/addMember.do" method="post">
 			<fieldset>
 				<ul>
 					<li>
@@ -47,5 +48,6 @@
 		</section>
 	
 	</div>
+	<jsp:include page="/footer.jsp" />
 </body>
 </html>

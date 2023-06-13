@@ -11,16 +11,19 @@
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
-	<c:if test="${empty sessionId}">
+	<%-- <c:if test="${empty sessionId}">
 		<script>
 			alert("로그인이 필요합니다.");
 			location.href="/loginForm.do"; //페이지 이동
 		</script>
-	</c:if>
+	</c:if> --%>
 	<jsp:include page="../header.jsp" />
 	<div id="container">
 		<section id="memberlist">		
 		<h2>회원목록입니다.</h2>
+		<div class="logout">
+			<p><a href="/logout.do">[관리자 로그아웃]</p></a>
+		</div>
 		<table id="tbl_list">
 			<thead>
 				<tr>
@@ -29,6 +32,7 @@
 					<th>이름</th>
 					<th>성별</th>
 					<th>가입일</th>
+					<th>삭제</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -42,7 +46,14 @@
 					<td><c:out value="${member.name }" /> </td>
 					<td><c:out value="${member.gender }" /> </td>
 					<%-- <td> <c:out value="${member.joinDate }" /> </td> --%>
-					<td><fmt:formatDate value="${member.joinDate}"/></td>
+					<td><fmt:formatDate value="${member.joinDate}"
+						pattern="yyyy-MM-dd HH:mm:ss"/></td>
+					<td>
+						<a href="/deleteMember.do?memberId=${member.memberId}"
+							onclick="return confirm('정말로삭제하시겠습니까?)">
+							<button type="button">삭제</button>
+						</a>
+					</td>
 				</tr>
 				</c:forEach>
 			</tbody>

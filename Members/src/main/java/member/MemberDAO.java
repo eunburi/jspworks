@@ -111,6 +111,22 @@ public class MemberDAO {
 		
 	}
 	
+	//회원삭제
+	public void deleteMember(String memberId) {
+		conn = JDBCUtil.getConnection();
+		String sql = "DELETE FROM t_member WHERE memberId = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.executeUpdate(); // db에서삭제
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(conn, pstmt);
+		}
+	}
+	
+	
 	
 	
 }

@@ -11,7 +11,18 @@
 	<jsp:include page="header.jsp" />
 	<div id="container">
 		<section id="main">
-		<h2>ʕ•ﻌ•ʔ 곰돌이 월드에 오신걸 환영합니다. ʕ•ﻌ•ʔ</h2>
+		
+		<div class="viewBox">
+			<div class="slideBox">
+				<div class="leftBox">
+					<div class="slideItem"><h2>ʕ•ﻌ•ʔ 곰돌이 월드에 오신걸 환영합니다. ʕ•ﻌ•ʔ</h2></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
 		<div class="main_img">
 			<!-- <img src="resources/images/gangnam.jpg" alt="배경사진"> -->
 			<!-- <img src="resources/images/1.jpg" alt="곰돌이 배경사진"> -->

@@ -133,21 +133,55 @@ public class Maincontroller extends HttpServlet {
 		//게시판관리
 		if(command.equals("/boardList.do")) {
 			ArrayList<Board> boardList = boardDAO.getBoardList();
-			
 			//모델생성
 			request.setAttribute("boardList", boardList);
-			
-			
-			
 			nextPage = "/board/boardList.jsp";
+		}else if(command.equals("/boardForm.do")){
+			nextPage = "/board/boardForm.jsp";
+		}else if(command.equals("/addBoard.do")) {
+			//글쓰기 폼에 입력된 데이터를 받아오기
+			String title = request.getParameter("title");
+			String content = request.getParameter("content");
+			//memberId 세션을 가져오기
+			String memberId = (String)session.getAttribute("sessionId");
+			
+			Board board = new Board();
+			board.setTitle(title);
+			board.setContent(content);
+			board.setMemberId(memberId);
+			
+			//글쓰기 처리 메서드 호출
+			boardDAO.addBoard(board);
+		}else if(command.equals("/boardView.do")) {
+			int bnum = Integer.parseInt(request.getParameter("bnum"));
+			Board board = boardDAO.getBoard(bnum); //글 상세보기 처리
+			
+			//모델생성
+			request.setAttribute("board", board);			
+			
+			nextPage = "/board/boardView.jsp";
+		}else if(command.equals("/deletBoard.do")) {
+			int bnum = Integer.parseInt(request.getParameter("bnum"));
+			boardDAO.deleteBoard(bnum); // 게시글 삭제 
+			nextPage = "/boardList.do"; // 삭제 후 게시글 목록 이동
+		}else if(command.equals("/deleteMember.do")) { //회원삭제 요청
+			
+			String memberId = request.getParameter("memberId");
+			memberDAO.deleteMember(memberId); //회원 삭제 처리
+			nextPage = "/memberList.do";
+			
 		}
 		
-		//포워딩
-		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher(nextPage);
-		
-		dispatcher.forward(request, response);
-		
+		//포워딩 - 새로고침 자동저장 오류해결 : response.sendRedirect 
+		if(command.equals("/addBoard.do")) {
+			response.sendRedirect("/boardList.do");
+		}
+		else {
+			RequestDispatcher dispatcher = 
+					request.getRequestDispatcher(nextPage);
+			
+			dispatcher.forward(request, response);
+		}
 		
 	}
 

@@ -17,6 +17,9 @@
 				<div class="leftBox">
 					<div class="slideItem"><h2>ʕ•ﻌ•ʔ 곰돌이 월드에 오신걸 환영합니다. ʕ•ﻌ•ʔ</h2></div>
 				</div>
+				<div class="rightBox">
+					<div class="slideItem"><h2>ʕ•ﻌ•ʔ 곰돌이 월드에 오신걸 환영합니다. ʕ•ﻌ•ʔ</h2></div>
+				</div>
 			</div>
 		</div>
 		

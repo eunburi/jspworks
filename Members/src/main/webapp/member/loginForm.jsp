@@ -11,17 +11,17 @@
 	<jsp:include page="../header.jsp" />
 	<div id="container">
 		<section id="login">
-			<h2>로그인</h2>
+			<h2>LOGIN</h2>
 			<form action="/loginProcess.do" method="post">
 			<fieldset>
 				<ul>
 					<li>
-						<label for="memberId">아이디 </label>
+						<label for="memberId">ID </label>
 						<input type="text" id="memberId" name="memberId"
 							placeholder="ID" required="required" autofocus>
 					</li>
 					<li>
-						<label for="passwd">비밀번호 </label>
+						<label for="passwd">PASSWORD </label>
 						<input type="password" id="passwd" name="passwd"
 							placeholder="PASSWORD" required="required">
 					</li>					

@@ -50,17 +50,21 @@
 						pattern="yyyy-MM-dd HH:mm:ss"/></td>
 					<td>
 						<a href="/deleteMember.do?memberId=${member.memberId}"
-							onclick="return confirm('정말로삭제하시겠습니까?)">
+							onclick="return confirm('정말로 삭제하시겠습니까?)">
 							<button type="button">삭제</button>
 						</a>
 					</td>
 				</tr>
 				</c:forEach>
 			</tbody>
-		
-		
-		
 		</table>
+		<h3>이벤트 추첨 링크!</h3>
+		<div id = "coupon">
+				<a href="/memberEvent.do">
+					<img src="../resources/images/bronx.png" alt = "쿠폰사진">
+				</a>	
+		</div>
+			
 		<%-- <c:forEach var = "member" items="${memberList}">
 			<p>아이디 : <c:out value="${member.memberId }" />
 		</c:forEach> --%>

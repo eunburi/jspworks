@@ -1,0 +1,1 @@
+jquery를 이용한 Ajax테스트입니다. (test.txt파일입니다)

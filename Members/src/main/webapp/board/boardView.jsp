@@ -35,8 +35,16 @@
 						</td> --%>
 						<td>
 							<c:out value="글쓴이: ${board.memberId}" />
+							<c:choose>
+								<c:when test="${not empty board.modifyDate}">
+								(수정일: <fmt:formatDate value="${board.regDate}" 
+										pattern="yyyy-MM-dd HH:mm:ss" />)
+								</c:when>
+								<c:otherwise>
 								(작성일: <fmt:formatDate value="${board.regDate}" 
 										pattern="yyyy-MM-dd HH:mm:ss" />)
+								</c:otherwise>
+							</c:choose>
 						</td>
 					</tr>
 					<tr>

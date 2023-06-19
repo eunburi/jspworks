@@ -30,13 +30,22 @@ public class CheckID extends HttpServlet {
 		
 		MemberDAO dao = new MemberDAO();
 		String id = request.getParameter("id");
-		boolean duplicatedID = dao.duplicatedID(id);
 		
-		if(duplicatedID==true) {
-			out.println("not_usable");
+		int duplicatedID = dao.duplicatedID(id);
+		
+		if(duplicatedID==1) { //아이디가 중복되었으면
+			out.println("not_usable"); //not_usable 문자 전송
 		}else {
 			out.println("usable");
 		}
+		
+		/*boolean duplicatedID = dao.duplicatedID(id);
+		
+		if(duplicatedID==true) { //아이디가 중복되었으면
+			out.println("not_usable"); //not_usable 문자 전송
+		}else {
+			out.println("usable");
+		}*/
 	}
 
 }
